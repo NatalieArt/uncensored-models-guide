@@ -38,12 +38,13 @@ def main():
 
     require(parser.links.get("canonical") == PAGES_BASE, "canonical must point to the review URL")
     require(parser.meta.get("og:url") == PAGES_BASE, "og:url must point to the review URL")
-    expected_image = PAGES_BASE + "assets/banner.jpg"
+    expected_image = PAGES_BASE + "assets/og-social.jpg"
     require(parser.meta.get("og:image") == expected_image, "og:image must use the review banner URL")
     require(parser.meta.get("twitter:image") == expected_image, "twitter:image must use the review banner URL")
     require(parser.meta.get("og:title"), "OG title is required")
     require(parser.meta.get("og:description"), "OG description is required")
     require((ROOT / "assets" / "banner.jpg").is_file(), "banner.jpg is missing")
+    require((ROOT / "assets" / "og-social.jpg").is_file(), "og-social.jpg is missing")
 
     local_refs = re.findall(r'(?:src|href)="(?!https?:|data:|#|mailto:)([^"?]+)', html)
     missing = [ref for ref in local_refs if not (ROOT / ref).resolve().is_file()]
