@@ -41,6 +41,8 @@ def main():
     expected_image = PAGES_BASE + "assets/og-social.jpg"
     require(parser.meta.get("og:image") == expected_image, "og:image must use the review banner URL")
     require(parser.meta.get("twitter:image") == expected_image, "twitter:image must use the review banner URL")
+    require(parser.meta.get("og:image:width") == "1920", "OG image width must match the supplied banner")
+    require(parser.meta.get("og:image:height") == "826", "OG image height must match the supplied banner")
     require(parser.meta.get("og:title"), "OG title is required")
     require(parser.meta.get("og:description"), "OG description is required")
     require((ROOT / "assets" / "banner.jpg").is_file(), "banner.jpg is missing")
