@@ -92,11 +92,11 @@ def main():
         "the expanded mobile navigation height must be included above the sticky hero",
     )
     require(
-        'src="assets/step-2-filter-clean-v2.png"' in html,
+        'src="assets/step-2-filter-clean-v3.png"' in html,
         "step 2 must use the simplified arrow annotation image",
     )
     require(
-        (ROOT / "assets" / "step-2-filter-clean-v2.png").is_file(),
+        (ROOT / "assets" / "step-2-filter-clean-v3.png").is_file(),
         "simplified step 2 annotation image is missing",
     )
     require(
