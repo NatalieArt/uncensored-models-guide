@@ -62,6 +62,36 @@ def main():
         "grid children must be allowed to shrink around wide tables on mobile",
     )
 
+    scroll_script = (ROOT / "assets" / "scroll-canvas.js").read_text(encoding="utf-8")
+    mobile_full_frame_guard = (
+        "if (!isMobile) { ensureFull(target); ensureFull(target + dir); }"
+    )
+    require(
+        mobile_full_frame_guard in scroll_script,
+        "mobile scrolling must keep the portrait preview frames instead of loading centered 16:9 frames",
+    )
+    require(
+        mobile_full_frame_guard in html,
+        "the inline scrolling script must preserve the portrait crop on mobile",
+    )
+    require(
+        "var inline = null;" in html,
+        "the page must load the corrected external mobile frames instead of stale embedded copies",
+    )
+    require(
+        'data-frame-version="scroll2"' in html,
+        "corrected scrolling frames must use a fresh cache version",
+    )
+    header_resize_guard = "new ResizeObserver(resize).observe(header)"
+    require(
+        header_resize_guard in scroll_script and header_resize_guard in html,
+        "scrolling canvas must resize when the mobile navigation changes height",
+    )
+    require(
+        "v<260" in html,
+        "the expanded mobile navigation height must be included above the sticky hero",
+    )
+
     print("PASS: metadata, banner, local assets, and responsive safeguards")
 
 

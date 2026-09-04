@@ -101,12 +101,14 @@
     prefetch(base); if (hdEnabled && firstRender) prefetch(tracks.hd);
     scheduleDraw();
     clearTimeout(settleTimer);
-    settleTimer = setTimeout(function () { ensureFull(target); ensureFull(target + dir); }, SETTLE_DELAY + 16);
+    settleTimer = setTimeout(function () { if (!isMobile) { ensureFull(target); ensureFull(target + dir); } }, SETTLE_DELAY + 16);
   }
 
   window.addEventListener('scroll', onScroll, { passive: true });
   window.addEventListener('load', function(){ resize(); onScroll(); });
   window.addEventListener('resize', resize);
+  var header = document.querySelector('.bn-header');
+  if (header && window.ResizeObserver) new ResizeObserver(resize).observe(header);
   resize();
   ensureSheet(base, 0, function () { onScroll(); });
   onScroll();
