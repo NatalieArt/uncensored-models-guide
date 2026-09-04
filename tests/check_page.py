@@ -131,6 +131,14 @@ def main():
         "table.modelsth:nth-child(3),table.modelstd:nth-child(3){text-align:center}" in compact_css,
         "the Access heading and badges must be centered in the same column",
     )
+    require(
+        "Uncensored on Sogni means Sogni adds minimal checks of its own on top of the open-weight models." in html,
+        "the introduction must accurately describe Sogni's minimal checks",
+    )
+    require(
+        "plain Wan 3 (not Enhanced version) run on the vendor's servers with the vendor's rules." in html,
+        "the partner-model note must distinguish plain Wan 3 from Enhanced",
+    )
 
     print("PASS: metadata, banner, local assets, and responsive safeguards")
 
