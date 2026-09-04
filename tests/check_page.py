@@ -92,12 +92,20 @@ def main():
         "the expanded mobile navigation height must be included above the sticky hero",
     )
     require(
-        'src="assets/step-2-filter-clean-v3.png"' in html,
-        "step 2 must use the simplified arrow annotation image",
+        'src="assets/step-1-settings-callout-v2.png"' in html,
+        "step 1 must use the matching Settings arrow annotation",
     )
     require(
-        (ROOT / "assets" / "step-2-filter-clean-v3.png").is_file(),
-        "simplified step 2 annotation image is missing",
+        (ROOT / "assets" / "step-1-settings-callout-v2.png").is_file(),
+        "updated Settings annotation image is missing",
+    )
+    require(
+        'src="assets/step-2-filter-clean-v4.png"' in html,
+        "step 2 must use the centered switch annotation image",
+    )
+    require(
+        (ROOT / "assets" / "step-2-filter-clean-v4.png").is_file(),
+        "centered step 2 annotation image is missing",
     )
     require(
         ".toggle{display:inline-flex;align-items:center;gap:8px;vertical-align:baseline" in compact_css,
