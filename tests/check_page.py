@@ -105,7 +105,11 @@ def main():
     )
     require(
         html.count('class="setting-action-head"') == 2,
-        "step 2 must render both filter instructions as plain text rows",
+        "step 2 must render both filter instructions as compact rows",
+    )
+    require(
+        html.count('class="setting-toggle"') == 2,
+        "both filter instructions must start with a small toggle",
     )
     require(
         html.count('class="setting-off">OFF</strong>') == 2,
@@ -114,6 +118,10 @@ def main():
     require(
         ".setting-action-head{white-space:nowrap}" in compact_css,
         "each setting name and OFF state must stay together on one line",
+    )
+    require(
+        "table.modelsth:nth-child(3),table.modelstd:nth-child(3){text-align:center}" in compact_css,
+        "the Access heading and badges must be centered in the same column",
     )
 
     print("PASS: metadata, banner, local assets, and responsive safeguards")
