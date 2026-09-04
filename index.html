@@ -219,6 +219,10 @@
   .toggle i{width:34px;height:18px;border-radius:999px;background:#2a3128;position:relative;display:inline-block}
   .toggle i::after{content:"";position:absolute;top:2px;left:2px;width:14px;height:14px;border-radius:50%;background:#fff}
   .toggle.on i{background:#5b5bf6}.toggle.on i::after{left:18px}
+  .setting-actions{margin:0 0 1em}
+  .setting-line{margin:0 0 .65em!important;color:var(--soft)}
+  .setting-action-head{white-space:nowrap}
+  .setting-off{color:var(--accent);letter-spacing:.04em}
 
   /* prompt boxes */
   .prompt{position:relative;background:var(--panel-2);border:1px solid var(--line);border-left:3px solid var(--accent);border-radius:10px;padding:12px 16px;margin:14px 0 4px;font-family:ui-monospace,Menlo,monospace;font-size:13.5px;color:var(--ink);line-height:1.55}
@@ -536,14 +540,14 @@
         <div class="step-eyebrow"><span class="num">2</span><span class="k">Content preferences</span></div>
         <h2>Turn off the Sensitive Content Filter</h2>
         <p>Inside <strong>Content preferences</strong> there are two switches. Set both to off and confirm that you are 18 or older:</p>
-        <ul>
-          <li><span class="toggle"><i></i>Sensitive Content Filter</span> &nbsp;<strong>off</strong>. This is the one that unlocks the uncensored models.</li>
-          <li><span class="toggle"><i></i>Enable filter on startup</span> &nbsp;<strong>off</strong> if you want the filter to stay off permanently. Leave it on and Sogni re-arms the filter every time it loads, and the models disappear again until you switch it off by hand.</li>
-        </ul>
+        <div class="setting-actions">
+          <p class="setting-line"><span class="setting-action-head"><strong>Sensitive Content Filter</strong> <strong class="setting-off">OFF</strong></span>. This is the one that unlocks the uncensored models.</p>
+          <p class="setting-line"><span class="setting-action-head"><strong>Enable filter on startup</strong> <strong class="setting-off">OFF</strong></span> if you want the filter to stay off permanently. Leave it on and Sogni re-arms the filter every time it loads, and the models disappear again until you switch it off by hand.</p>
+        </div>
         <p>Just below, under <strong>Saved generation settings</strong>, there is a third switch that has nothing to do with content but is worth deciding now: <span class="toggle on"><i></i>Save my prompts and settings</span>. Leave it on if you want Recent Projects to remember your prompt and settings so you can reuse a project in one click; they are stored encrypted and deleted on the same schedule as the media they belong to. Turn it off if you would rather Sogni kept no record of your prompts and generation settings at all. Either way, <strong>Delete saved settings</strong> wipes everything Sogni currently holds for your account.</p>
         <p>In the Sogni Studio desktop app the same control is called <strong>Safe Content Filter</strong>, under Advanced in the Manual Controls sidebar (or Render Settings in Video Create mode). There it is a local classifier that blurs flagged thumbnails in your gallery; it screens what you see, it does not block generation.</p>
         <figure class="shot">
-          <img src="assets/step-2-filter-clean.png" alt="Content preferences in Sogni settings. Sensitive Content Filter and Enable filter on startup are highlighted and set to off; the Save my prompts and settings switch below is highlighted as an optional choice." width="1702" height="924" decoding="async">
+          <img src="assets/step-2-filter-clean-v2.png" alt="Content preferences in Sogni settings. Arrows point to the two switches that should be turned off and to the optional saved-settings switch." width="1702" height="924" decoding="async">
           <figcaption>Filter off, startup filter off, and the saved-settings switch is your call.</figcaption>
         </figure>
         <h3 style="margin-top:28px">What turning it off means</h3>

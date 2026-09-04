@@ -92,16 +92,28 @@ def main():
         "the expanded mobile navigation height must be included above the sticky hero",
     )
     require(
-        'src="assets/step-2-filter-clean.png"' in html,
+        'src="assets/step-2-filter-clean-v2.png"' in html,
         "step 2 must use the simplified arrow annotation image",
     )
     require(
-        (ROOT / "assets" / "step-2-filter-clean.png").is_file(),
+        (ROOT / "assets" / "step-2-filter-clean-v2.png").is_file(),
         "simplified step 2 annotation image is missing",
     )
     require(
         ".toggle{display:inline-flex;align-items:center;gap:8px;vertical-align:baseline" in compact_css,
         "inline setting labels must share the article text baseline with their state",
+    )
+    require(
+        html.count('class="setting-action-head"') == 2,
+        "step 2 must render both filter instructions as plain text rows",
+    )
+    require(
+        html.count('class="setting-off">OFF</strong>') == 2,
+        "both filter states must use uppercase OFF on the setting-name line",
+    )
+    require(
+        ".setting-action-head{white-space:nowrap}" in compact_css,
+        "each setting name and OFF state must stay together on one line",
     )
 
     print("PASS: metadata, banner, local assets, and responsive safeguards")
