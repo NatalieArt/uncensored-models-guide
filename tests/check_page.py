@@ -91,6 +91,14 @@ def main():
         "v<260" in html,
         "the expanded mobile navigation height must be included above the sticky hero",
     )
+    require(
+        'src="assets/step-2-filter-clean.png"' in html,
+        "step 2 must use the simplified arrow annotation image",
+    )
+    require(
+        (ROOT / "assets" / "step-2-filter-clean.png").is_file(),
+        "simplified step 2 annotation image is missing",
+    )
 
     print("PASS: metadata, banner, local assets, and responsive safeguards")
 
