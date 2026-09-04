@@ -99,6 +99,10 @@ def main():
         (ROOT / "assets" / "step-2-filter-clean.png").is_file(),
         "simplified step 2 annotation image is missing",
     )
+    require(
+        ".toggle{display:inline-flex;align-items:center;gap:8px;vertical-align:baseline" in compact_css,
+        "inline setting labels must share the article text baseline with their state",
+    )
 
     print("PASS: metadata, banner, local assets, and responsive safeguards")
 
