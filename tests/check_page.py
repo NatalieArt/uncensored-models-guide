@@ -92,11 +92,11 @@ def main():
         "the expanded mobile navigation height must be included above the sticky hero",
     )
     require(
-        'src="assets/step-1-settings-callout-v2.png"' in html,
+        'src="assets/step-1-settings-callout-v3.png"' in html,
         "step 1 must use the matching Settings arrow annotation",
     )
     require(
-        (ROOT / "assets" / "step-1-settings-callout-v2.png").is_file(),
+        (ROOT / "assets" / "step-1-settings-callout-v3.png").is_file(),
         "updated Settings annotation image is missing",
     )
     require(
